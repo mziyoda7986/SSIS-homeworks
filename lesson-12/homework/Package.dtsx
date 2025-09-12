@@ -1,0 +1,1898 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/29/2025 11:49:13 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-IC9MOEJ3N7C"
+  DTS:CreatorName="WIN-IC9MOEJ3N7C\user"
+  DTS:DTSID="{479078BB-6253-4B56-A5BA-9751A37F12BA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{BA2AB80B-F99A-4968-8EE3-295ABC17B7D3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-IC9MOEJ3N7C\SQLEXPRESS.ssis12]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1B1CD516-86D7-4B24-9C56-7862B709BB9E}"
+      DTS:ObjectName="WIN-IC9MOEJ3N7C\SQLEXPRESS.ssis12">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WIN-IC9MOEJ3N7C\SQLEXPRESS;Initial Catalog=ssis12;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{1B1CD516-86D7-4B24-9C56-7862B709BB9E}WIN-IC9MOEJ3N7C\SQLEXPRESS.ssis12;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-IC9MOEJ3N7C\SQLEXPRESS.ssis12 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DE5DE83E-3D21-4EF0-B1DC-20188A0F040D}"
+      DTS:ObjectName="WIN-IC9MOEJ3N7C\SQLEXPRESS.ssis12 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WIN-IC9MOEJ3N7C\SQLEXPRESS;Initial Catalog=ssis12;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{DE5DE83E-3D21-4EF0-B1DC-20188A0F040D}WIN-IC9MOEJ3N7C\SQLEXPRESS.ssis12 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clean Employee Age"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7F5EFB85-9514-4461-8550-433F3B2D88F9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clean Employee Age"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Clean Employee Age\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Clean Employee Age\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean Employee Age\Conditional Split.Inputs[Conditional Split Input].Columns[AgeNumber]"
+                      cachedDataType="i4"
+                      cachedName="AgeNumber"
+                      lineageId="Package\Clean Employee Age\Script Component.Outputs[Output 0].Columns[AgeNumber]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean Employee Age\Conditional Split.Outputs[Rejects]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Rejects"
+                  synchronousInputId="Package\Clean Employee Age\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Clean Employee Age\Script Component.Outputs[Output 0].Columns[AgeNumber]} &gt; 0 &amp;&amp; #{Package\Clean Employee Age\Script Component.Outputs[Output 0].Columns[AgeNumber]} &lt;= 120</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">AgeNumber &gt; 0 &amp;&amp; AgeNumber &lt;= 120</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Clean Employee Age\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Clean Employee Age\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Clean Employee Age\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Clean Employee Age\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Employee Age\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean Employee Age\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean Employee Age\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean Employee Age\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean Employee Age\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Clean Employee Age\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean Employee Age\Data Conversion.Inputs[Data Conversion Input].Columns[Name]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Name"
+                      lineageId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Clean Employee Age\Data Conversion.Inputs[Data Conversion Input].Columns[AgeLabel]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="AgeLabel"
+                      lineageId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Output].Columns[AgeLabel]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean Employee Age\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Clean Employee Age\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Employee Age\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Clean Employee Age\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
+                      name="Copy of Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].Columns[Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean Employee Age\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AgeLabel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Clean Employee Age\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AgeLabel]"
+                      name="Copy of AgeLabel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Clean Employee Age\Derived Column.Outputs[Derived Column Output].Columns[AgeLabel]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Clean Employee Age\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Clean Employee Age\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Employee Age\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean Employee Age\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean Employee Age\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean Employee Age\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean Employee Age\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Clean Employee Age\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean Employee Age\Derived Column.Inputs[Derived Column Input].Columns[AgeNumber]"
+                      cachedDataType="i4"
+                      cachedName="AgeNumber"
+                      lineageId="Package\Clean Employee Age\Script Component.Outputs[Output 0].Columns[AgeNumber]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Clean Employee Age\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Output].Columns[AgeLabel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Output].Columns[AgeLabel]"
+                      name="AgeLabel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,10)#{Package\Clean Employee Age\Script Component.Outputs[Output 0].Columns[AgeNumber]} + " years old"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,10)AgeNumber + " years old"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Output].Columns[LoadTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Output].Columns[LoadTime]"
+                      name="LoadTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Clean Employee Age\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean Employee Age\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[EmployeeFacts_Cleaned]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Clean Employee Age\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-IC9MOEJ3N7C\SQLEXPRESS.ssis12 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-IC9MOEJ3N7C\SQLEXPRESS.ssis12 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EmployeeID]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeID"
+                      externalMetadataColumnId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                      lineageId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].Columns[EmployeeID]" />
+                    <inputColumn
+                      refId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoadTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LoadTime"
+                      externalMetadataColumnId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadTime]"
+                      lineageId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Output].Columns[LoadTime]" />
+                    <inputColumn
+                      refId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Name"
+                      externalMetadataColumnId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Clean Employee Age\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
+                    <inputColumn
+                      refId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AgeLabel]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="AgeLabel"
+                      externalMetadataColumnId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      lineageId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Output].Columns[AgeLabel]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      dataType="wstr"
+                      length="20"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadTime]"
+                      dataType="dbTimeStamp"
+                      name="LoadTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean Employee Age\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Employee Age\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean Employee Age\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean Employee Age\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean Employee Age\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean Employee Age\Script Component"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;13"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="Script Component"
+              version="13">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public override void ProcessInput(int InputID, string InputName, PipelineBuffer Buffer, OutputNameMap OutputMap)
+    {
+
+        if (InputName.Equals(@"Input 0", StringComparison.Ordinal))
+        {
+            Input0_ProcessInput(new Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap));
+        }
+
+    }
+
+    public virtual void Input0_ProcessInput(Input0Buffer Buffer)
+    {
+        while (Buffer.NextRow())
+        {
+            Input0_ProcessInputRow(Buffer);
+        }
+    }
+
+    public virtual void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System;
+using System.Text;
+using System.Collections.Generic;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    // Dictionaries for parsing text numbers
+    static readonly Dictionary<string, int> Ones = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
+    {
+        {"zero",0},{"one",1},{"two",2},{"three",3},{"four",4},{"five",5},{"six",6},{"seven",7},{"eight",8},{"nine",9},
+        {"ten",10},{"eleven",11},{"twelve",12},{"thirteen",13},{"fourteen",14},{"fifteen",15},{"sixteen",16},
+        {"seventeen",17},{"eighteen",18},{"nineteen",19}
+    };
+
+    static readonly Dictionary<string, int> Tens = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
+    {
+        {"twenty",20},{"thirty",30},{"forty",40},{"fifty",50},{"sixty",60},{"seventy",70},{"eighty",80},{"ninety",90}
+    };
+
+    public override void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+        string raw = (Row.Age_IsNull ? "" : Row.Age).Trim();
+
+        // Step 1: Try extracting digits
+        int ageFromDigits = ExtractDigits(raw);
+        if (ageFromDigits > 0)
+        {
+            Row.AgeNumber = ageFromDigits;
+            Row.ParseNote = "parsed: digits";
+            return;
+        }
+
+        // Step 2: Try parsing text-based numbers
+        int ageFromWords = ParseWords(raw);
+        if (ageFromWords > 0)
+        {
+            Row.AgeNumber = ageFromWords;
+            Row.ParseNote = "parsed: words";
+            return;
+        }
+
+        // Step 3: If nothing works, mark as unparsed
+        Row.AgeNumber = -1;
+        Row.ParseNote = "unparsed";
+    }
+
+    private int ExtractDigits(string s)
+    {
+        if (string.IsNullOrWhiteSpace(s)) return -1;
+        StringBuilder digits = new StringBuilder();
+        foreach (char c in s)
+        {
+            if (char.IsDigit(c))
+                digits.Append(c);
+        }
+
+        if (digits.Length == 0) return -1;
+        if (int.TryParse(digits.ToString(), out int n)) return n;
+        return -1;
+    }
+
+    private int ParseWords(string s)
+    {
+        if (string.IsNullOrWhiteSpace(s)) return -1;
+
+        // Normalize: remove hyphens and punctuation
+        string cleaned = s.Replace("-", " ").Replace(",", " ").Replace("/", " ").Trim().ToLowerInvariant();
+
+        // Remove suffixes like "years", "yrs", etc.
+        cleaned = cleaned.Replace("years", " ").Replace("year", " ").Replace("yrs", " ")
+                         .Replace("yr", " ").Replace("yo", " ").Replace("y o", " ");
+
+        // Handle words joined together (quick check)
+        foreach (var kv in Tens)
+        {
+            if (cleaned.StartsWith(kv.Key) && cleaned.Length > kv.Key.Length)
+            {
+                var rest = cleaned.Substring(kv.Key.Length).Trim();
+                if (Ones.TryGetValue(rest, out int onesVal))
+                    return kv.Value + onesVal;
+            }
+        }
+
+        string[] tokens = cleaned.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+        int total = 0;
+        bool any = false;
+        foreach (var t in tokens)
+        {
+            if (Ones.TryGetValue(t, out int v1)) { total += v1; any = true; continue; }
+            if (Tens.TryGetValue(t, out int v2)) { total += v2; any = true; continue; }
+        }
+
+        if (!any) return -1;
+        return total;
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Input0Buffer: ScriptBuffer
+
+{
+    public Input0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public Int32 EmployeeID
+    {
+        get
+        {
+            return Buffer.GetInt32(BufferColumnIndexes[0]);
+        }
+    }
+    public bool EmployeeID_IsNull
+    {
+        get
+        {
+            return IsNull(0);
+        }
+    }
+
+    public String Name
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[1]);
+        }
+    }
+    public bool Name_IsNull
+    {
+        get
+        {
+            return IsNull(1);
+        }
+    }
+
+    public String Age
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[2]);
+        }
+    }
+    public bool Age_IsNull
+    {
+        get
+        {
+            return IsNull(2);
+        }
+    }
+
+    public String ParseNote
+    {
+        set
+        {
+            this[3] = value;
+        }
+    }
+    public bool ParseNote_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public Int32 AgeNumber
+    {
+        set
+        {
+            this[4] = value;
+        }
+    }
+    public bool AgeNumber_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(4);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public bool NextRow()
+    {
+        return base.NextRow();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_026d801f5a54421ea65fc87466a0c4c9.Properties.Settings.get_Default():SC_026d801f5a54421ea65fc87466a0c4c9.Properties.Sett" +
+    "ings")]
+
+namespace SC_026d801f5a54421ea65fc87466a0c4c9.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_026d801f5a54421ea65fc87466a0c4c9.csproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F15352E8-1BC3-4112-839D-4853517DD701}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_026d801f5a54421ea65fc87466a0c4c9</RootNamespace>
+    <AssemblyName>SC_026d801f5a54421ea65fc87466a0c4c9</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptComponent" IconIndex="0" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC160</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_026d801f5a54421ea65fc87466a0c4c9</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_026d801f5a54421ea65fc87466a0c4c9</msb:DisplayName>
+    <msb:ProjectId>{06DA4CB1-24BC-47D1-A7BC-DC985B4D226A}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_026d801f5a54421ea65fc87466a0c4c9.csproj" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="main.cs" />
+    <msb:File Include="BufferWrapper.cs" />
+    <msb:File Include="ComponentWrapper.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_026d801f5a54421ea65fc87466a0c4c9")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_026d801f5a54421ea65fc87466a0c4c9")]
+[assembly: AssemblyCopyright("Copyright @  2025")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_026d801f5a54421ea65fc87466a0c4c9.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_026d801f5a54421ea65fc87466a0c4c9.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_026d801f5a54421ea65fc87466a0c4c9.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_026d801f5a54421ea65fc87466a0c4c9.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_026d801f5a54421ea65fc87466a0c4c9.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_026d801f5a54421ea65fc87466a0c4c9.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAKFRsWgAAAAAAAAAAOAAIiALATAAAB4AAAAIAAAAAAAAXjwA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAAw8AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAZBwAAAAgAAAAHgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAQAAAAAYAAAAgAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAJgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAABA
+PAAAAAAAAEgAAAACAAUADCYAAEgVAAABAAAAAAAAAFQ7AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBsAAAAAQAAEQNvDAAABi0IA28LAAAGKwVyAQAAcG8Q
+AAAKCgIGKAIAAAYLBxYxEwMHbw8AAAYDcgMAAHBvDQAABioCBigDAAAGDAgWMRMDCG8PAAAGA3Ih
+AABwbw0AAAYqAxVvDwAABgNyPQAAcG8NAAAGKhMwAgBbAAAAAgAAEQMoEQAACiwCFSpzEgAACgoD
+DBYNKx8ICW8TAAAKEwQRBCgUAAAKLAkGEQRvFQAACiYJF1gNCQhvFgAACjLYBm8XAAAKLQIVKgZv
+GAAAChIBKBkAAAosAgcqFSoAGzAFAJcBAAADAAARAygRAAAKLAIVKgNyTwAAcHJTAABwbxoAAApy
+VwAAcHJTAABwbxoAAApyWwAAcHJTAABwbxoAAApvEAAACm8bAAAKCgZyXwAAcHJTAABwbxoAAApy
+awAAcHJTAABwbxoAAApydQAAcHJTAABwbxoAAApyfQAAcHJTAABwbxoAAApygwAAcHJTAABwbxoA
+AApyiQAAcHJTAABwbxoAAAoKfgIAAARvHAAACg0rZhIDKB0AAAoTBAYSBCgeAAAKbx8AAAosTgZv
+FgAAChIEKB4AAApvFgAACjE6BhIEKB4AAApvFgAACm8gAAAKbxAAAAoTBX4BAAAEEQUSBm8hAAAK
+LBESBCgiAAAKEQZYEwfdggAAABIDKCMAAAotkd4OEgP+FgIAABtvJAAACtwGF40fAAABJRYfIJ0X
+byUAAAoWCxYMEwgWEwkrPREIEQmaEwp+AQAABBEKEgtvIQAACiwJBxELWAsXDCsXfgIAAAQRChIM
+byEAAAosBwcRDFgLFwwRCRdYEwkRCREIjmkyuwgtAhUqByoRByoAARAAAAIAqgBzHQEOAAAAAB4C
+KBMAAAYqEzAEAIIBAAAAAAAAKCYAAApzJwAACiVykQAAcBZvKAAACiVymwAAcBdvKAAACiVyowAA
+cBhvKAAACiVyqwAAcBlvKAAACiVytwAAcBpvKAAACiVywQAAcBtvKAAACiVyywAAcBxvKAAACiVy
+0wAAcB1vKAAACiVy3wAAcB5vKAAACiVy6wAAcB8JbygAAAolcvUAAHAfCm8oAAAKJXL9AABwHwtv
+KAAACiVyCwEAcB8MbygAAAolchkBAHAfDW8oAAAKJXIrAQBwHw5vKAAACiVyPQEAcB8PbygAAAol
+ck0BAHAfEG8oAAAKJXJdAQBwHxFvKAAACiVycQEAcB8SbygAAAolcoMBAHAfE28oAAAKgAEAAAQo
+JgAACnMnAAAKJXKVAQBwHxRvKAAACiVyowEAcB8ebygAAAolcrEBAHAfKG8oAAAKJXK9AQBwHzJv
+KAAACiVyyQEAcB88bygAAAolctUBAHAfRm8oAAAKJXLlAQBwH1BvKAAACiVy8wEAcB9abygAAAqA
+AgAABCoqAgMEBSgpAAAKKlICeyoAAAoCeysAAAoWlG8sAAAKKiICFigtAAAKKlICeyoAAAoCeysA
+AAoXlG8uAAAKKiICFygtAAAKKlICeyoAAAoCeysAAAoYlG8uAAAKKiICGCgtAAAKKiYCGQMoLwAA
+CipaAywIAhkoMAAACipyAQIAcHMxAAAKejoCGgOMIAAAASgvAAAKKloDLAgCGigwAAAKKnIBAgBw
+czEAAAp6HgIoMgAACioeAigzAAAKKn4CKDQAAAoCAnMXAAAGfQMAAAQCAnMYAAAGfQQAAAQqkgRy
+ngIAcBpvNQAACiwVAgUCAyg2AAAKDgRzBgAABm8VAAAGKkorBwIDbxYAAAYDbxEAAAYt8SoGKjoC
+KDcAAAoCA30FAAAEKjoCKDcAAAoCA30GAAAEKh4CKDcAAAoqrn4HAAAELR5yrgIAcNAHAAACKDgA
+AApvOQAACnM6AAAKgAcAAAR+BwAABCoafggAAAQqHgKACAAABCoafgkAAAQqHgIoOwAACioucx4A
+AAaACQAABCpCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAAAUBwAAI34AAIAHAAAk
+CAAAI1N0cmluZ3MAAAAApA8AACADAAAjVVMAxBIAABAAAAAjR1VJRAAAANQSAAB0AgAAI0Jsb2IA
+AAAAAAAAAgAAAVcVogkJAQAAAPoBMwAWAAABAAAAKQAAAAgAAAAJAAAAHwAAABMAAAA7AAAAEAAA
+AAMAAAADAAAADQAAAA4AAAADAAAAAQAAAAQAAAABAAAAAADwAwEAAAAAAAYAvwLcBQYAUwPcBQYA
+CwK+BQ8AUAYAAAYAOALVBAYAogLVBAYAgwLVBAYAOgPVBAYA3wLVBAYA+ALVBAYATwLVBAYAagKN
+AwoAEwMjAQYALQCHAAYASQXhBzsApgUAAAYAHgCHAAoAcwUjAQ4AZAUjAQoAHgUjAQoAagcjAQYA
+DgeIBAYA7gG+BQYAhAX8BQYAEgXABBIAsAHaAxIAHwLaAxIAcQGrBAYA0wHcBQYAswOIBAYANgWI
+BAYAGACIBAYA4ACIBAYA4waIBAYAlAWIBAYAAQCHAAYA5wSIBAYAAQWIBAYARAGIBAYA7ACIBAYA
+GAjVBAAAAABeAAAAAAABAAEAAQAQAKAEAAAQAAEAAQABABAAVwUAAEkAAwAGAAEAEABMBwAAVQAD
+ABMAAQAQANcGAABZAAUAFwABABAAjgYAAFkABgAYAAAAEAADBl8GWQAHABkAAAEQAMIGXwZxAAkA
+HQAxAJgGNwExANIGNwEGANcGPwEGAI4GQwEBAFoHRwEBAFoHRwERAJQESwERAGEBTwERAMgAUwFQ
+IAAAAADGAO0HVwEBAMggAAAAAIEAAAddAQIAMCEAAAAAgQDRBV0BAwDkIgAAAACGGLEFBgAEAOwi
+AAAAAJEYtwViAQQAeiQAAAAAhhixBd4ABACFJAAAAACGCGcAQwAHAJokAAAAAIYIGAS3AAcAoyQA
+AAAAhggQASEABwC4JAAAAACGCD0EtwAHAMEkAAAAAIYI2AAhAAcA1iQAAAAAhgguBLcABwDfJAAA
+AACGCMUBEAAHAOkkAAAAAIYITQRmAQgAACUAAAAAhgg7BQEACQAPJQAAAACGCGIEZgEKACYlAAAA
+AIYABAi3AAsALiUAAAAAhgAVB7cACwA2JQAAAACGGLEFBgALAFYlAAAAAMYAywdrAQsAeyUAAAAA
+xgHEB1cBDwCOJQAAAADGAe0HVwEQAJAlAAAAAIYYsQV1AREAnyUAAAAAhhixBXUBEgCuJQAAAACD
+GLEFBgATALYlAAAAAJMIgAV7ARMA4iUAAAAAkwhJAYABEwDpJQAAAACTCFUBhQETAPElAAAAAJYI
+LweLARQA+CUAAAAAhhixBQYAFAAAJgAAAACRGLcFYgEUAAAAAQAICAAAAQAMBwAAAQAMBwAAAQB5
+BQAAAgCdBgAAAwAsBQAAAQCHAwAAAQCHAwAAAQCHAwAAAQCHAwAAAQB2AAAAAgAZAQAAAwB5BQAA
+BAAsBQAAAQB5BQAAAQAICAAAAQBwBwAAAQBwBwAAAQCHAwkAsQUBABEAsQUGABkAsQUKACkAsQUQ
+ADEAsQUQADkAsQUQAEEAsQUQAEkAsQUQAFEAsQUQAFkAsQUQAGEAsQUQAGkAsQUGALkAsQUGANkA
+sQUVAOkAsQUGAPEAjwQhAPEAtQAuAHkAsQUGAPEA9gYzAPkAIQc4AHkApgA9APEAxANDAHkAxAND
+ALEApwMhAAEBpwFHAPEArQBpAPEAOwchAAwAowV2ABQAegeIABwADAiaAPEAzwOfAPEAugOkAAwA
+ewOpABwAcQOyABQA2Ae3AAkBnwEGAPEAKQe7ABkBiQHFAAwAsQXLAAwAogDWAJEAsQXeAJEAeQXo
+AJEAnQbsAJkAFQDwAJEAcAT1AJkAsAOkAJEAfwT6AJEAdwQBACkBsQUQAJEABAi3AJEAFQe3AKkA
+sQUGAPEAywYAAakAsQYIAbEAsQUGADkB/gAOATkBFAgXAcEAsQUdAeEAsQUGAC4ACwCrAS4AEwC0
+AS4AGwDTAS4AIwDcAS4AKwAFAi4AMwAFAi4AOwAFAi4AQwDcAS4ASwALAi4AUwAFAi4AWwAiAkMA
+YwBsAuMAawBsAiEBewBsAmkBcwDTAYkBcwDTARsAJQBOAAMAAQAHAAsACAANAAAAawCQAQAAHASU
+AQAAHgGYAQAAQQSUAQAA3ACYAQAAMgSUAQAAyQGYAQAAUQSUAQAAPwWQAQAAZgSUAQAAhAWcAQAA
+aQGhAQAAMwemAQIABwADAAIACAAFAAIACQAHAAIACgAJAAIACwALAAIADAANAAEADQAPAAEADgAR
+AAEADwATAAEAEAAVAAIAGgAXAAIAGwAZAAEAHAAZAAIAHQAbAG8AgQCTAASAAAABAAAAAAAAAAAA
+AAAAADoAAAAEAAAAAAAAAAAAAAAlAX4AAAAAABAAAAAAAAAAAAAAAC4BhgcAAAAAEAAAAAAAAAAA
+AAAALgGjBwAAAAAEAAAAAAAAAAAAAAAlAYgEAAAAAAAAAAABAAAADQYAAAAAAAAASUVxdWFsaXR5
+Q29tcGFyZXJgMQBHZXRJbnQzMgBLZXlWYWx1ZVBhaXJgMgBEaWN0aW9uYXJ5YDIAU0NfMDI2ZDgw
+MWY1YTU0NDIxZWE2NWZjODc0NjZhMGM0YzkAPE1vZHVsZT4AZ2V0X0VtcGxveWVlSUQASW5wdXRJ
+RABtc2NvcmxpYgBTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYwBBZGQAQXBwZW5kAFJlcGxhY2UA
+SXNOdWxsT3JXaGl0ZVNwYWNlAGRlZmF1bHRJbnN0YW5jZQBnZXRfQWdlAElEaXNwb3NhYmxlAFJ1
+bnRpbWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFuZGxlAGdldF9OYW1lAElucHV0TmFtZQBNaWNy
+b3NvZnQuU3FsU2VydmVyLkR0cy5QaXBlbGluZQBUeXBlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJl
+AHJlc291cmNlQ3VsdHVyZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBnZXRfT3JkaW5hbElnbm9y
+ZUNhc2UARGlzcG9zZQBUcnlQYXJzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBzZXRfUGFyc2VOb3Rl
+AENvbXBpbGVyR2VuZXJhdGVkQXR0cmlidXRlAERlYnVnZ2VyTm9uVXNlckNvZGVBdHRyaWJ1dGUA
+RGVidWdnYWJsZUF0dHJpYnV0ZQBFZGl0b3JCcm93c2FibGVBdHRyaWJ1dGUAQXNzZW1ibHlUaXRs
+ZUF0dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFya0F0dHJpYnV0ZQBUYXJnZXRGcmFtZXdvcmtBdHRy
+aWJ1dGUAQXNzZW1ibHlDb25maWd1cmF0aW9uQXR0cmlidXRlAEFzc2VtYmx5RGVzY3JpcHRpb25B
+dHRyaWJ1dGUAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJpYnV0ZQBBc3NlbWJseVByb2R1Y3RB
+dHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRyaWJ1dGUAU1NJU1NjcmlwdENvbXBvbmVudEVu
+dHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRp
+YmlsaXR5QXR0cmlidXRlAGdldF9WYWx1ZQBUcnlHZXRWYWx1ZQB2YWx1ZQBTeXN0ZW0uUnVudGlt
+ZS5WZXJzaW9uaW5nAFRvU3RyaW5nAEdldFN0cmluZwBTdWJzdHJpbmcAZ2V0X0xlbmd0aABTdGFy
+dHNXaXRoAFN5c3RlbS5Db21wb25lbnRNb2RlbABTQ18wMjZkODAxZjVhNTQ0MjFlYTY1ZmM4NzQ2
+NmEwYzRjOS5kbGwAZ2V0X0VtcGxveWVlSURfSXNOdWxsAGdldF9BZ2VfSXNOdWxsAGdldF9OYW1l
+X0lzTnVsbABzZXRfUGFyc2VOb3RlX0lzTnVsbABzZXRfQWdlTnVtYmVyX0lzTnVsbABTZXROdWxs
+AHNldF9JdGVtAFN5c3RlbQBUcmltAHJlc291cmNlTWFuAFNjcmlwdE1haW4AU3lzdGVtLkNvbmZp
+Z3VyYXRpb24AU3lzdGVtLkdsb2JhbGl6YXRpb24AU3lzdGVtLlJlZmxlY3Rpb24ASW52YWxpZE9w
+ZXJhdGlvbkV4Y2VwdGlvbgBTdHJpbmdDb21wYXJpc29uAEN1bHR1cmVJbmZvAE91dHB1dE5hbWVN
+YXAAT3V0cHV0TWFwAENoYXIAc2V0X0FnZU51bWJlcgBTdHJpbmdCdWlsZGVyAElucHV0MEJ1ZmZl
+cgBQaXBlbGluZUJ1ZmZlcgBTY3JpcHRCdWZmZXIAZ2V0X1Jlc291cmNlTWFuYWdlcgBTdHJpbmdD
+b21wYXJlcgBHZXRFbnVtZXJhdG9yAC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAUGFy
+c2VXb3JkcwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFN5c3RlbS5SZXNvdXJjZXMA
+U0NfMDI2ZDgwMWY1YTU0NDIxZWE2NWZjODc0NjZhMGM0YzkuUHJvcGVydGllcy5SZXNvdXJjZXMu
+cmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFNDXzAyNmQ4MDFmNWE1NDQyMWVhNjVmYzg3NDY2YTBj
+NGM5LlByb3BlcnRpZXMAVmFyaWFibGVzAE9uZXMAQnVmZmVyQ29sdW1uSW5kZXhlcwBHZXRDb2x1
+bW5JbmRleGVzAFNldHRpbmdzAEVxdWFscwBUZW5zAENvbm5lY3Rpb25zAFN0cmluZ1NwbGl0T3B0
+aW9ucwBnZXRfQ2hhcnMARXh0cmFjdERpZ2l0cwBPYmplY3QARW5kT2ZSb3dzZXQASXNEaWdpdABT
+cGxpdABnZXRfRGVmYXVsdABUb0xvd2VySW52YXJpYW50AFVzZXJDb21wb25lbnQAUGFyZW50Q29t
+cG9uZW50AFNjcmlwdENvbXBvbmVudABnZXRfQ3VycmVudABNaWNyb3NvZnQuU3FsU2VydmVyLlR4
+U2NyaXB0AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AElucHV0MF9Qcm9jZXNzSW5w
+dXQATW92ZU5leHQAU3lzdGVtLlRleHQASW5wdXQwX1Byb2Nlc3NJbnB1dFJvdwBOZXh0Um93AGdl
+dF9LZXkAZ2V0X0Fzc2VtYmx5AAAAAAABAB1wAGEAcgBzAGUAZAA6ACAAZABpAGcAaQB0AHMAABtw
+AGEAcgBzAGUAZAA6ACAAdwBvAHIAZABzAAARdQBuAHAAYQByAHMAZQBkAAADLQABAyAAAAMsAAAD
+LwAAC3kAZQBhAHIAcwAACXkAZQBhAHIAAAd5AHIAcwAABXkAcgAABXkAbwAAB3kAIABvAAAJegBl
+AHIAbwAAB28AbgBlAAAHdAB3AG8AAAt0AGgAcgBlAGUAAAlmAG8AdQByAAAJZgBpAHYAZQAAB3MA
+aQB4AAALcwBlAHYAZQBuAAALZQBpAGcAaAB0AAAJbgBpAG4AZQAAB3QAZQBuAAANZQBsAGUAdgBl
+AG4AAA10AHcAZQBsAHYAZQAAEXQAaABpAHIAdABlAGUAbgAAEWYAbwB1AHIAdABlAGUAbgAAD2YA
+aQBmAHQAZQBlAG4AAA9zAGkAeAB0AGUAZQBuAAATcwBlAHYAZQBuAHQAZQBlAG4AABFlAGkAZwBo
+AHQAZQBlAG4AABFuAGkAbgBlAHQAZQBlAG4AAA10AHcAZQBuAHQAeQAADXQAaABpAHIAdAB5AAAL
+ZgBvAHIAdAB5AAALZgBpAGYAdAB5AAALcwBpAHgAdAB5AAAPcwBlAHYAZQBuAHQAeQAADWUAaQBn
+AGgAdAB5AAANbgBpAG4AZQB0AHkAAICbSQBzAE4AdQBsAGwAIABwAHIAbwBwAGUAcgB0AHkAIABj
+AGEAbgBuAG8AdAAgAGIAZQAgAHMAZQB0ACAAdABvACAARgBhAGwAcwBlAC4AIABBAHMAcwBpAGcA
+bgAgAGEAIAB2AGEAbAB1AGUAIAB0AG8AIAB0AGgAZQAgAGMAbwBsAHUAbQBuACAAaQBuAHMAdABl
+AGEAZAAuAAAPSQBuAHAAdQB0ACAAMAAAcVMAQwBfADAAMgA2AGQAOAAwADEAZgA1AGEANQA0ADQA
+MgAxAGUAYQA2ADUAZgBjADgANwA0ADYANgBhADAAYwA0AGMAOQAuAFAAcgBvAHAAZQByAHQAaQBl
+AHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAQB4oFDUS50Cv4Fik+J/T8wAEIAEBCAMgAAEFIAEBEREE
+IAEBDgUgAQERaQUHAw4ICAMgAA4IBwUSPQgOCAMEAAECDgQgAQMIBAABAgMFIAESPQMDIAAIBgAC
+Ag4QCBoHDQ4IAhURQQIOCBURRQIOCA4ICB0OCA4ICAUgAg4ODgYVEjkCDggKIAAVEUECEwATAQYV
+EUECDggKIAAVEUUCEwATAQYVEUUCDggEIAATAAQgAQIOBCABDggIIAICEwAQEwEEIAATAQMgAAIJ
+IAIdDh0DEYCJBQAAEoCNCiABARUSgJEBEwAHIAIBEwATAQkgAwESTR0IElEDBhJNAwYdCAQgAQgI
+BCABAggFIAIBCBwHIAICDhGAmQUgAR0ICAgAARKAnRGAoQUgABKApQcgAgEOEoClCLd6XFYZNOCJ
+CImEXc2AgMyRBwYVEjkCDggDBhIUAwYSGAMGElUDBhJhAwYSZQMGEiAFIAEBEgwEIAEIDgMAAAEE
+IAEBAgkgBAEIDhJNElEFIAEBElUEAAASYQQAABJlBQABARJlBAAAEiADKAAIAygAAgMoAA4ECAAS
+YQQIABJlBAgAEiAIAQAIAAAAAAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAA
+AAAAKAEAI1NDXzAyNmQ4MDFmNWE1NDQyMWVhNjVmYzg3NDY2YTBjNGM5AAAFAQAAAAAWAQARQ29w
+eXJpZ2h0IEAgIDIwMjUAAEkBABouTkVURnJhbWV3b3JrLFZlcnNpb249djQuNwEAVA4URnJhbWV3
+b3JrRGlzcGxheU5hbWUSLk5FVCBGcmFtZXdvcmsgNC43BAEAAAAAAAC0AAAAzsrvvgEAAACRAAAA
+bFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4w
+LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0
+ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAANDwA
+AAAAAAAAAAAATjwAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA8AAAAAAAAAAAAAAAAX0NvckRs
+bE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA
+EAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAEgAAABY
+QAAA7AMAAAAAAAAAAAAA7AM0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8AAAAAAL0E
+7/4AAAEAAAABAAAAAAAAAAEAAAAAAD8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABEAAAAAQBW
+AGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8AbgAAAAAA
+AACwBEwDAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAACgDAAABADAAMAAwADAAMAA0
+AGIAMAAAABoAAQABAEMAbwBtAG0AZQBuAHQAcwAAAAAAAAAiAAEAAQBDAG8AbQBwAGEAbgB5AE4A
+YQBtAGUAAAAAAAAAAABwACQAAQBGAGkAbABlAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAAAAAAUwBD
+AF8AMAAyADYAZAA4ADAAMQBmADUAYQA1ADQANAAyADEAZQBhADYANQBmAGMAOAA3ADQANgA2AGEA
+MABjADQAYwA5AAAAMAAIAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBuAAAAAAAxAC4AMAAuADAALgAw
+AAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAEMAXwAwADIANgBkADgAMAAxAGYA
+NQBhADUANAA0ADIAMQBlAGEANgA1AGYAYwA4ADcANAA2ADYAYQAwAGMANABjADkALgBkAGwAbAAA
+AEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBwAHkAcgBpAGcAaAB0ACAA
+QAAgACAAMgAwADIANQAAACoAAQABAEwAZQBnAGEAbABUAHIAYQBkAGUAbQBhAHIAawBzAAAAAAAA
+AAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUAbgBhAG0AZQAAAFMAQwBfADAAMgA2AGQA
+OAAwADEAZgA1AGEANQA0ADQAMgAxAGUAYQA2ADUAZgBjADgANwA0ADYANgBhADAAYwA0AGMAOQAu
+AGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEAbQBlAAAAAABTAEMAXwAwADIANgBkADgA
+MAAxAGYANQBhADUANAA0ADIAMQBlAGEANgA1AGYAYwA4ADcANAA2ADYAYQAwAGMANABjADkAAAA0
+AAgAAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAAOAAIAAEA
+QQBzAHMAZQBtAGIAbAB5ACAAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAAGA8AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_026d801f5a54421ea65fc87466a0c4c9</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE">06</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Clean Employee Age\Script Component.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean Employee Age\Script Component.Inputs[Input 0].Columns[EmployeeID]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeID"
+                      lineageId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].Columns[EmployeeID]" />
+                    <inputColumn
+                      refId="Package\Clean Employee Age\Script Component.Inputs[Input 0].Columns[Name]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Name"
+                      lineageId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Clean Employee Age\Script Component.Inputs[Input 0].Columns[Age]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Age"
+                      lineageId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].Columns[Age]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean Employee Age\Script Component.Outputs[Output 0]"
+                  name="Output 0"
+                  synchronousInputId="Package\Clean Employee Age\Script Component.Inputs[Input 0]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Employee Age\Script Component.Outputs[Output 0].Columns[ParseNote]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Clean Employee Age\Script Component.Outputs[Output 0].Columns[ParseNote]"
+                      name="ParseNote" />
+                    <outputColumn
+                      refId="Package\Clean Employee Age\Script Component.Outputs[Output 0].Columns[AgeNumber]"
+                      dataType="i4"
+                      lineageId="Package\Clean Employee Age\Script Component.Outputs[Output 0].Columns[AgeNumber]"
+                      name="AgeNumber" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean Employee Age\SRC EmployeeFacts"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC EmployeeFacts"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[EmployeeFacts]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT EmployeeID, Name, Age FROM dbo.EmployeeFacts;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Clean Employee Age\SRC EmployeeFacts.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-IC9MOEJ3N7C\SQLEXPRESS.ssis12]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-IC9MOEJ3N7C\SQLEXPRESS.ssis12]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      lineageId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      name="EmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].Columns[Name]"
+                      codePage="1251"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="100"
+                      lineageId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].Columns[Age]"
+                      codePage="1251"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].ExternalColumns[Age]"
+                      length="50"
+                      lineageId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].Columns[Age]"
+                      name="Age"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      codePage="1251"
+                      dataType="str"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output].ExternalColumns[Age]"
+                      codePage="1251"
+                      dataType="str"
+                      length="50"
+                      name="Age" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      dataType="i4"
+                      lineageId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      codePage="1251"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Error Output].Columns[Age]"
+                      codePage="1251"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Error Output].Columns[Age]"
+                      name="Age" />
+                    <outputColumn
+                      refId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Clean Employee Age.Paths[Conditional Split Default Output]"
+              endId="Package\Clean Employee Age\Derived Column.Inputs[Derived Column Input]"
+              name="Conditional Split Default Output"
+              startId="Package\Clean Employee Age\Conditional Split.Outputs[Conditional Split Default Output]" />
+            <path
+              refId="Package\Clean Employee Age.Paths[Data Conversion Output]"
+              endId="Package\Clean Employee Age\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Clean Employee Age\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Clean Employee Age.Paths[Derived Column Output]"
+              endId="Package\Clean Employee Age\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Clean Employee Age\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Clean Employee Age.Paths[OLE DB Source Output]"
+              endId="Package\Clean Employee Age\Script Component.Inputs[Input 0]"
+              name="OLE DB Source Output"
+              startId="Package\Clean Employee Age\SRC EmployeeFacts.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Clean Employee Age.Paths[Output 0]"
+              endId="Package\Clean Employee Age\Conditional Split.Inputs[Conditional Split Input]"
+              name="Output 0"
+              startId="Package\Clean Employee Age\Script Component.Outputs[Output 0]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Clean Employee Age"
+          TopLeft="526.66663789087,6.93333328511981" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Clean Employee Age">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\Clean Employee Age\SRC EmployeeFacts"
+          TopLeft="479.166640486155,6.0666666244798" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Clean Employee Age\Script Component"
+          TopLeft="478.333307198353,71.066666172478" />
+        <EdgeLayout
+          Id="Package\Clean Employee Age.Paths[OLE DB Source Output]"
+          TopLeft="562.949973842254,47.6666666244798">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.3999995479981"
+              Start="0,0"
+              End="0,15.8999995479981">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.8999995479981" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Clean Employee Age\Conditional Split"
+          TopLeft="475.833307334947,154.266665593916" />
+        <EdgeLayout
+          Id="Package\Clean Employee Age.Paths[Output 0]"
+          TopLeft="555.88330726665,112.666666172478">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.5999994214376"
+              Start="0,0"
+              End="0,34.0999994214376">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.0999994214376" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,45.6"
+          Id="Package\Clean Employee Age\Derived Column"
+          TopLeft="479.999973773957,220.133331802554" />
+        <EdgeLayout
+          Id="Package\Clean Employee Age.Paths[Conditional Split Default Output]"
+          TopLeft="554.516640554452,195.866665593916">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.2666662086381"
+              Start="0,0"
+              End="0,16.7666662086381">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.7666662086381" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.61390625,2.55423154181906,141.2278125,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Clean Employee Age\OLE DB Destination"
+          TopLeft="708.333294631708,264.333331495192" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Clean Employee Age\Data Conversion"
+          TopLeft="488.333306651978,289.199998228153" />
+        <EdgeLayout
+          Id="Package\Clean Employee Age.Paths[Derived Column Output]"
+          TopLeft="556.399973773957,265.733331802554">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.93333287802045,23.4666664255989"
+              Start="0,0"
+              End="9.93333287802045,15.9666664255989">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.73333321279947" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.73333321279947"
+                    Point2="0,11.7333332127995"
+                    Point3="4,11.7333332127995" />
+                  <mssgle:LineSegment
+                    End="5.93333287802045,11.7333332127995" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.93333287802045,11.7333332127995"
+                    Point2="9.93333287802045,11.7333332127995"
+                    Point3="9.93333287802045,15.7333332127995" />
+                  <mssgle:LineSegment
+                    End="9.93333287802045,15.9666664255989" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clean Employee Age.Paths[Data Conversion Output]"
+          TopLeft="644.333306651978,309.999998228153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.9999879797305,-24.8666667329603"
+              Start="0,0"
+              End="56.4999879797305,-24.8666667329603">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.9999939898652,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.9999939898652,0"
+                    Point2="31.9999939898652,0"
+                    Point3="31.9999939898652,-4" />
+                  <mssgle:LineSegment
+                    End="31.9999939898652,-20.8666667329603" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.9999939898652,-20.8666667329603"
+                    Point2="31.9999939898652,-24.8666667329603"
+                    Point3="35.9999939898652,-24.8666667329603" />
+                  <mssgle:LineSegment
+                    End="56.4999879797305,-24.8666667329603" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Clean Employee Age\SRC EmployeeFacts">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Clean Employee Age\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
