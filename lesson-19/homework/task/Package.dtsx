@@ -1,0 +1,1300 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/22/2025 7:56:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-AGJD8N8"
+  DTS:CreatorName="DESKTOP-AGJD8N8\Lenovo PC"
+  DTS:DTSID="{909A883A-4E2D-4149-AC71-142EBC9800D2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{5C29D356-0964-4EA2-9230-F955D7D3A06D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DB_OLE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{57BD2D31-BB2F-4378-A690-3AAE6F90FBAD}"
+      DTS:ObjectName="DB_OLE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-AGJD8N8;Initial Catalog=ssis19;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{57BD2D31-BB2F-4378-A690-3AAE6F90FBAD}DESKTOP-AGJD8N8.ssis19;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel_Template]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{42DA638E-F8C2-4848-8F3C-3C492805D14C}"
+      DTS:ObjectName="Excel_Template">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::CurrentFile]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Lenovo PC\Desktop\MAAB\SSIS\source\Students_Batch1_20250110.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D0459487-2359-4D85-8C69-EE35DF94856A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Lenovo PC\Desktop\MAAB\SSIS\source\Students_Batch1_20250110.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CA6C807C-5252-4A1F-8B0C-76F224D12B35}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Lenovo PC\Desktop\MAAB\SSIS\source</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{77292AC2-F68C-4689-B005-761A4C62F4A6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="InsertedCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{061CD6D6-665B-4711-ACDD-96C7B60AFC80}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="InsertedFacts">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{46905C93-30AA-46E0-93EA-A4FB8B5894B0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Lenovo PC\Desktop\MAAB\SSIS\source</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FF1CB61F-24E6-4EB9-8390-D218A9A29A21}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PackageName">
+      <DTS:VariableValue
+        DTS:DataType="8">Load_Students</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1328D0F7-3D28-46C2-83AB-EA1D115B71DF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Fact_Students_Registration</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E54815F7-81A5-4257-A497-7AA5113AFE90}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="UpdatedCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{736C05DB-5BA8-4D4C-A4A7-F73D663806C9}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{235E0652-8C74-4C33-A710-EC88418CEFF7}"
+        DTS:ObjectName="{235E0652-8C74-4C33-A710-EC88418CEFF7}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\Lenovo PC\Desktop\MAAB\SSIS\source" />
+            <FEFEProperty
+              FileSpec="Students_*.xlsx" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{4834F3CE-FD29-4B2B-B3D9-001A133197B9}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Fact_Student_Registration">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\DF_LoadToStaging"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{545772ED-950D-40C7-A7C3-80BB0AD7A6E3}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DF_LoadToStaging"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input].Columns[Gender]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Gender"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Gender]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[nGender]"
+                          codePage="1251"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[nGender]"
+                          name="nGender"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Gender]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  validateExternalMetadata="False"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Sheet1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel_Template]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel_Template]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[StudentID]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[StudentID]"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[StudentID]"
+                          name="StudentID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[FirstName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[FirstName]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[FirstName]"
+                          name="FirstName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[LastName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[LastName]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[LastName]"
+                          name="LastName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[DateOfBirth]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]"
+                          name="DateOfBirth"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Gender]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[Gender]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Gender]"
+                          name="Gender"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Course]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[Course]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Course]"
+                          name="Course"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[RegistrationDate]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate]"
+                          name="RegistrationDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[FeePaid]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[FeePaid]"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[FeePaid]"
+                          name="FeePaid"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[StudentID]"
+                          dataType="r8"
+                          name="StudentID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="255"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="255"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[DateOfBirth]"
+                          dataType="wstr"
+                          length="255"
+                          name="DateOfBirth" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="255"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[Course]"
+                          dataType="wstr"
+                          length="255"
+                          name="Course" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[RegistrationDate]"
+                          dataType="wstr"
+                          length="255"
+                          name="RegistrationDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[FeePaid]"
+                          dataType="r8"
+                          name="FeePaid" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[StudentID]"
+                          dataType="r8"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[StudentID]"
+                          name="StudentID" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[FirstName]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[FirstName]"
+                          name="FirstName" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[LastName]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[LastName]"
+                          name="LastName" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[DateOfBirth]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[DateOfBirth]"
+                          name="DateOfBirth" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[Gender]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[Gender]"
+                          name="Gender" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[Course]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[Course]"
+                          name="Course" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[RegistrationDate]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[RegistrationDate]"
+                          name="RegistrationDate" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[FeePaid]"
+                          dataType="r8"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[FeePaid]"
+                          name="FeePaid" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[StudentStaging]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DB_OLE]"
+                      connectionManagerRefId="Package.ConnectionManagers[DB_OLE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StudentID]"
+                          cachedDataType="r8"
+                          cachedName="StudentID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StudentID]"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[StudentID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FirstName"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[FirstName]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="LastName"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[LastName]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateOfBirth]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="DateOfBirth"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Course]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Course"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Course]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RegistrationDate]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="RegistrationDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FeePaid]"
+                          cachedDataType="r8"
+                          cachedName="FeePaid"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FeePaid]"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[FeePaid]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nGender]"
+                          cachedCodepage="1251"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="nGender"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[nGender]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StudentID]"
+                          dataType="i4"
+                          name="StudentID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="100"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          dataType="dbDate"
+                          name="DateOfBirth" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          codePage="1251"
+                          dataType="str"
+                          length="1"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                          dataType="wstr"
+                          length="100"
+                          name="Course" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          dataType="dbTimeStamp2"
+                          name="RegistrationDate"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FeePaid]"
+                          dataType="numeric"
+                          name="FeePaid"
+                          precision="10"
+                          scale="2" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\DF_LoadToStaging.Paths[Data Conversion Output]"
+                  endId="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\DF_LoadToStaging.Paths[Excel Source Output]"
+                  endId="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Excel Source Output"
+                  startId="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6B48CDF8-056F-47CC-AEB6-B2124B2178F8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{57BD2D31-BB2F-4378-A690-3AAE6F90FBAD}"
+              SQLTask:SqlStatementSource="SELECT COUNT(*) FROM dbo.StudentStaging;"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::InsertedFacts" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Execute SQL Task 1"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5AC57B3C-F680-4B22-AFFD-D6DBD0AAA2A9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task 1"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{57BD2D31-BB2F-4378-A690-3AAE6F90FBAD}"
+              SQLTask:SqlStatementSource="INSERT INTO dbo.SuccessLog (PackageName, RunnerUsername, SourceFile, TargetTable, InsertedRows, UpdatedRows)&#xA;VALUES (?, ?, ?, ?, ?, ?);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::UserName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::CurrentFile"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::TargetTable"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::InsertedFacts"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::UpdatedCount"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\EXEC_InsertFacts"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{268A511F-ACCA-46A3-A225-7DFDDB38D426}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EXEC_InsertFacts"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{57BD2D31-BB2F-4378-A690-3AAE6F90FBAD}"
+              SQLTask:SqlStatementSource="INSERT INTO dbo.Fact_Students_Registration (StudentKey, CourseKey, RegistrationDateKey, FeePaid)&#xA;SELECT ds.StudentKey, dc.CourseKey, CONVERT(INT, CONVERT(VARCHAR(8), ss.RegistrationDate, 112)), ss.FeePaid&#xA;FROM dbo.StudentStaging ss&#xA;JOIN dbo.Dim_Student ds ON ds.StudentID = ss.StudentID&#xA;JOIN dbo.Dim_Course dc ON dc.CourseName = ss.Course;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\EXEC_MERGE_Course"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A61617B1-20D9-4872-A85C-0F9273C6D64D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EXEC_MERGE_Course"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{57BD2D31-BB2F-4378-A690-3AAE6F90FBAD}"
+              SQLTask:SqlStatementSource="MERGE dbo.Dim_Course AS T&#xA;USING (&#xA;    SELECT DISTINCT Course AS CourseName FROM dbo.StudentStaging&#xA;) AS S&#xA;ON T.CourseName = S.CourseName&#xA;WHEN NOT MATCHED BY TARGET&#xA;    THEN INSERT (CourseName) VALUES (S.CourseName);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\EXEC_MERGE_Students"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{69EE361C-CC1B-4AE3-930A-DA0414CE38C0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EXEC_MERGE_Students"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{57BD2D31-BB2F-4378-A690-3AAE6F90FBAD}"
+              SQLTask:SqlStatementSource="MERGE dbo.Dim_Student AS T&#xA;USING (&#xA;    SELECT DISTINCT StudentID, &#xA;           (FirstName + ' ' + LastName) AS FullName, &#xA;           DateOfBirth, Gender&#xA;    FROM dbo.StudentStaging&#xA;) AS S&#xA;ON T.StudentID = S.StudentID&#xA;WHEN MATCHED AND (ISNULL(T.FullName,'') &lt;&gt; ISNULL(S.FullName,'') OR ISNULL(T.DateOfBirth,'1900-01-01') &lt;&gt; ISNULL(S.DateOfBirth,'1900-01-01') OR ISNULL(T.Gender,'') &lt;&gt; ISNULL(S.Gender,''))&#xA;    THEN UPDATE SET FullName = S.FullName, DateOfBirth = S.DateOfBirth, Gender = S.Gender&#xA;WHEN NOT MATCHED BY TARGET&#xA;    THEN INSERT (StudentID, FullName, DateOfBirth, Gender)&#xA;         VALUES (S.StudentID, S.FullName, S.DateOfBirth, S.Gender);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\TRUNCATE_Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7146150C-4648-4593-8DDB-B6DD0BC517F3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE_Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{57BD2D31-BB2F-4378-A690-3AAE6F90FBAD}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.StudentStaging;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{6D9F9CB7-7CF7-4092-B7A8-CBC0FF9417E4}"
+          DTS:From="Package\Foreach Loop Container\TRUNCATE_Staging"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\DF_LoadToStaging" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{AF73DBDE-828D-4607-99BE-F1C42F10B212}"
+          DTS:From="Package\Foreach Loop Container\DF_LoadToStaging"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container\EXEC_MERGE_Students" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{7106CDE8-500B-4747-9D14-5D6B302B28FE}"
+          DTS:From="Package\Foreach Loop Container\EXEC_MERGE_Students"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop Container\EXEC_MERGE_Course" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{D82BDAA6-AB40-4CA3-9ADD-AB0054883C55}"
+          DTS:From="Package\Foreach Loop Container\EXEC_MERGE_Course"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Foreach Loop Container\EXEC_InsertFacts" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{FB16AD05-B6A2-44AF-9D0B-EBAFF650B8DD}"
+          DTS:From="Package\Foreach Loop Container\EXEC_InsertFacts"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Foreach Loop Container\Execute SQL Task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{7B6AF96E-2E8F-46B6-8310-39956240E2FB}"
+          DTS:From="Package\Foreach Loop Container\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Foreach Loop Container\Execute SQL Task 1" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{4FF45878-AB08-402F-A322-562FAC20A84E}"
+          DTS:ObjectName="{4FF45878-AB08-402F-A322-562FAC20A84E}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::CurrentFile" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{D705BF45-881B-423A-AEB5-5373DFEE981A}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{CF9A73A8-201D-4537-9FA4-55C03A991DA4}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{79FC132B-8AA4-477F-9E25-83E8419A1820}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{57BD2D31-BB2F-4378-A690-3AAE6F90FBAD}"
+              SQLTask:SqlStatementSource="INSERT INTO dbo.ErrorLog (PackageName, RunnerUsername, ErrorID, ErrorMessage)&#xA;VALUES (?, ?, ?, ?);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::UserName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::ErrorCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Foreach Loop Container\TRUNCATE_Staging"
+          TopLeft="34.5666598824994,9.33333234495586" />
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\Foreach Loop Container\DF_LoadToStaging"
+          TopLeft="43.7333260483215,92.5333317663935" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Foreach Loop Container\EXEC_MERGE_Students"
+          TopLeft="43.7333260483214,164.466664599511" />
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\Foreach Loop Container\EXEC_MERGE_Course"
+          TopLeft="46.6666597459055,243.99999761343" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Foreach Loop Container\EXEC_InsertFacts"
+          TopLeft="64.1666587897476,323.133330663509" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Foreach Loop Container\Execute SQL Task"
+          TopLeft="65.8333253653517,400.866663840148" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Foreach Loop Container\Execute SQL Task 1"
+          TopLeft="69.9999918043618,480.933330356148" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="125.34999296541,50.9333323449559">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.5999994214376"
+              Start="0,0"
+              End="0,34.0999994214376">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.0999994214376" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="128.133326048322,134.133331766393">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.3999999999999,30.3333328331179"
+              Start="0,0"
+              End="14.3999999999999,22.8333328331179">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.166666416559" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.166666416559"
+                    Point2="0,15.166666416559"
+                    Point3="4,15.166666416559" />
+                  <mssgle:LineSegment
+                    End="10.3999999999999,15.166666416559" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.3999999999999,15.166666416559"
+                    Point2="14.3999999999999,15.166666416559"
+                    Point3="14.3999999999999,19.166666416559" />
+                  <mssgle:LineSegment
+                    End="14.3999999999999,22.8333328331179" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="141.999992897113,206.066664599511">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.9333330139187"
+              Start="0,0"
+              End="0,30.4333330139187">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.4333330139187" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
+          TopLeft="143.816659267827,285.59999761343">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.5333330500788"
+              Start="0,0"
+              End="0,30.0333330500788">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.0333330500788" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 4]"
+          TopLeft="147.19999207755,364.733330663509">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.1333331766396"
+              Start="0,0"
+              End="0,28.6333331766396">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.6333331766396" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 5]"
+          TopLeft="148.233325365352,442.466663840148">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.56666643901005,38.4666665159992"
+              Start="0,0"
+              End="8.56666643901005,30.9666665159992">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.2333332579996" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.2333332579996"
+                    Point2="0,19.2333332579996"
+                    Point3="4,19.2333332579996" />
+                  <mssgle:LineSegment
+                    End="4.56666643901005,19.2333332579996" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.56666643901005,19.2333332579996"
+                    Point2="8.56666643901005,19.2333332579996"
+                    Point3="8.56666643901005,23.2333332579996" />
+                  <mssgle:LineSegment
+                    End="8.56666643901005,30.9666665159992" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="301.6,577.6"
+          Size="301.6,620.8"
+          Id="Package\Foreach Loop Container"
+          TopLeft="89.999995082617,89.2666660459175" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\DF_LoadToStaging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source"
+          TopLeft="115.833327004479,98.7999993129572" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination"
+          TopLeft="83.333328780201,257.399998210073" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Foreach Loop Container\DF_LoadToStaging\Data Conversion"
+          TopLeft="94.1666615216271,168.999998824795" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\DF_LoadToStaging.Paths[Excel Source Output]"
+          TopLeft="185.833327004479,140.399999312957">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.6666654828522,28.599999511838"
+              Start="0,0"
+              End="-13.6666654828522,21.099999511838">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.299999755919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.299999755919"
+                    Point2="0,14.299999755919"
+                    Point3="-4,14.299999755919" />
+                  <mssgle:LineSegment
+                    End="-9.66666548285221,14.299999755919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.66666548285221,14.299999755919"
+                    Point2="-13.6666654828522,14.299999755919"
+                    Point3="-13.6666654828522,18.299999755919" />
+                  <mssgle:LineSegment
+                    End="-13.6666654828522,21.099999511838" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\DF_LoadToStaging.Paths[Data Conversion Output]"
+          TopLeft="170.549995150914,210.599998824795">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.7999993852775"
+              Start="0,0"
+              End="0,39.2999993852775">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.2999993852775" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\DF_LoadToStaging\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\DF_LoadToStaging\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="146.999997809529,114.999998286366" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
