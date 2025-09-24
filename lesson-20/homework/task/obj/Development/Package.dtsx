@@ -1,0 +1,2305 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/24/2025 1:11:08 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-AGJD8N8"
+  DTS:CreatorName="DESKTOP-AGJD8N8\Lenovo PC"
+  DTS:DTSID="{3F799BA6-7495-4AD7-AB7D-9B70AAD522CC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{B1777DCC-77A1-4625-BD78-8B55552BE031}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DB_OLE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{43A0524E-100C-4ABB-B143-53254CC55892}"
+      DTS:ObjectName="DB_OLE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-AGJD8N8;Initial Catalog=ssis20;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{43A0524E-100C-4ABB-B143-53254CC55892}DESKTOP-AGJD8N8.ssis20;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel_Students]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{A22801D0-7480-4B7F-A0FD-E61C2815F069}"
+      DTS:ObjectName="Excel_Students">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Lenovo PC\Desktop\MAAB\SSIS\source\Students_Excel.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_CSV]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D88D335C-6647-4BDB-8E2D-6D1F671659C2}"
+      DTS:ObjectName="FF_CSV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Lenovo PC\Desktop\MAAB\SSIS\source\Students_CSV.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentID"
+              DTS:DTSID="{C9390A6F-236A-4B5A-AA97-09C282DD0DE4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{A04A3764-ABF6-4A4E-BB62-14B15F0FBD98}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{79CF3C10-DD09-4388-BFB6-0EC237860A8F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DateOfBirth"
+              DTS:DTSID="{4FBF0AD3-61C8-42F0-B14A-886F8B094163}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{D1C5DF2E-DB5E-42E1-A756-20DB50E2F40F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Course"
+              DTS:DTSID="{9997E0EE-DA22-47F5-89C4-C3B38B98D8C1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationDate"
+              DTS:DTSID="{9A37FAA1-71EB-4281-B38F-BA472BD566A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{4F14958F-6DA7-41C0-9DC9-BBB15CBD3BBB}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_TXT]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{360034EA-0123-482A-9568-63A0351188CA}"
+      DTS:ObjectName="FF_TXT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Lenovo PC\Desktop\MAAB\SSIS\source\Students_TXT.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentID"
+              DTS:DTSID="{A3D2C3A6-885F-4B6A-860C-C20A78A7A718}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{59D0B2B7-D02D-4D79-B550-4486CC560033}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{D098DBDC-CC12-401A-A3B0-1D2592F7EAEB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DateOfBirth"
+              DTS:DTSID="{4609F933-AB14-4BE9-AEE7-81137F66A33B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{FBCE5488-203F-4455-94E7-B1835E65AD98}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Course"
+              DTS:DTSID="{CA6C24CD-A896-4D64-9121-C8F8780701CA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationDate"
+              DTS:DTSID="{1272A523-A3C5-4DA9-AF9C-60FB5F94DE4D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{D61CB1E3-F020-4868-85FB-264493F56BA6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{48ABBB72-216D-4C62-9B11-295D27124300}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentFile">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4412599E-D4F8-441A-9F2F-30FD6577BDD7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Lenovo PC\Desktop\MAAB\SSIS\source</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E95281B6-1F60-4A7E-B4A2-3ED17512469D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LoadRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2BDFAB46-36FF-46C0-B9DC-1288784E252A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PackageName">
+      <DTS:VariableValue
+        DTS:DataType="8">SCD_IsActive</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF_LoadToStaging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{EDD2A5D9-F85C-4BE7-8D8B-07880D577A6A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF_LoadToStaging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF_LoadToStaging\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input].Columns[StudentID]"
+                      cachedDataType="r8"
+                      cachedName="StudentID"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[StudentID]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input].Columns[DateOfBirth]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DateOfBirth"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Gender"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input].Columns[Course]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Course"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Course]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input].Columns[RegistrationDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RegistrationDate"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Email"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Email]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StudentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StudentID]"
+                      name="Copy of StudentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[StudentID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FirstName]"
+                      name="Copy of FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[FirstName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastName]"
+                      name="Copy of LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[LastName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DateOfBirth]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DateOfBirth]"
+                      name="Copy of DateOfBirth"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Gender]"
+                      name="Copy of Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Gender]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Course]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Course]"
+                      name="Copy of Course"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Course]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RegistrationDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RegistrationDate]"
+                      name="Copy of RegistrationDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Email]"
+                      name="Copy of Email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Email]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_LoadToStaging\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_LoadToStaging\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel_Students]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel_Students]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[StudentID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[StudentID]"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[StudentID]"
+                      name="StudentID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[FirstName]"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[LastName]"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[DateOfBirth]"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]"
+                      name="DateOfBirth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[Gender]"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Course]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[Course]"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Course]"
+                      name="Course"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[RegistrationDate]"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate]"
+                      name="RegistrationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[Email]"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[StudentID]"
+                      dataType="r8"
+                      name="StudentID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="255"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="255"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[DateOfBirth]"
+                      dataType="wstr"
+                      length="255"
+                      name="DateOfBirth" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[Course]"
+                      dataType="wstr"
+                      length="255"
+                      name="Course" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[RegistrationDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      name="Email" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[StudentID]"
+                      dataType="r8"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[StudentID]"
+                      name="StudentID" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[DateOfBirth]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[DateOfBirth]"
+                      name="DateOfBirth" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[Course]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[Course]"
+                      name="Course" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[RegistrationDate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[RegistrationDate]"
+                      name="RegistrationDate" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_LoadToStaging\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_LoadToStaging\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FF_CSV]"
+                  connectionManagerRefId="Package.ConnectionManagers[FF_CSV]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[StudentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StudentID]"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[StudentID]"
+                      name="StudentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[DateOfBirth]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DateOfBirth]"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[DateOfBirth]"
+                      name="DateOfBirth"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      length="1"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[Course]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Course]"
+                      length="50"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[Course]"
+                      name="Course"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                      name="RegistrationDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      length="50"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StudentID]"
+                      dataType="i4"
+                      name="StudentID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DateOfBirth]"
+                      dataType="date"
+                      name="DateOfBirth" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Course]"
+                      dataType="wstr"
+                      length="50"
+                      name="Course" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                      dataType="date"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="50"
+                      name="Email" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_LoadToStaging\Flat File Source 1"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source 1"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_LoadToStaging\Flat File Source 1.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FF_TXT]"
+                  connectionManagerRefId="Package.ConnectionManagers[FF_TXT]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[StudentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[StudentID]"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[StudentID]"
+                      name="StudentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[DateOfBirth]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[DateOfBirth]"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[DateOfBirth]"
+                      name="DateOfBirth"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      length="1"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[Course]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[Course]"
+                      length="50"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[Course]"
+                      name="Course"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                      name="RegistrationDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      length="50"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[StudentID]"
+                      dataType="i4"
+                      name="StudentID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[DateOfBirth]"
+                      dataType="date"
+                      name="DateOfBirth" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[Course]"
+                      dataType="wstr"
+                      length="50"
+                      name="Course" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                      dataType="date"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="50"
+                      name="Email" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_LoadToStaging\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StudentStaging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_LoadToStaging\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DB_OLE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DB_OLE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StudentID]"
+                      cachedDataType="i4"
+                      cachedName="StudentID"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StudentID]"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[StudentID]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateOfBirth]"
+                      cachedDataType="date"
+                      cachedName="DateOfBirth"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[DateOfBirth]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Course]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Course"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Course]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RegistrationDate]"
+                      cachedDataType="date"
+                      cachedName="RegistrationDate"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Email]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StudentID]"
+                      dataType="i4"
+                      name="StudentID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="100"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="100"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                      dataType="dbDate"
+                      name="DateOfBirth" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                      dataType="wstr"
+                      length="100"
+                      name="Course" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                      dataType="dbDate"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="200"
+                      name="Email" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_LoadToStaging\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_LoadToStaging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_LoadToStaging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_LoadToStaging\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 1].Columns[StudentID]"
+                      cachedDataType="i4"
+                      cachedName="StudentID"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[StudentID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[StudentID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 1].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 1].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 1].Columns[DateOfBirth]"
+                      cachedDataType="date"
+                      cachedName="DateOfBirth"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[DateOfBirth]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[DateOfBirth]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 1].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Gender]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 1].Columns[Course]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Course"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[Course]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Course]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 1].Columns[RegistrationDate]"
+                      cachedDataType="date"
+                      cachedName="RegistrationDate"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[RegistrationDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[RegistrationDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 1].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Email"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output].Columns[Email]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Email]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 2].Columns[StudentID]"
+                      cachedDataType="i4"
+                      cachedName="StudentID"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[StudentID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[StudentID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 2].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 2].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 2].Columns[DateOfBirth]"
+                      cachedDataType="date"
+                      cachedName="DateOfBirth"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[DateOfBirth]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[DateOfBirth]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 2].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[Gender]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Gender]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 2].Columns[Course]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Course"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[Course]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Course]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 2].Columns[RegistrationDate]"
+                      cachedDataType="date"
+                      cachedName="RegistrationDate"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[RegistrationDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[RegistrationDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 2].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Email"
+                      lineageId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output].Columns[Email]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Email]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 3].Columns[Copy of StudentID]"
+                      cachedDataType="i4"
+                      cachedName="Copy of StudentID"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StudentID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[StudentID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 3].Columns[Copy of FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of FirstName"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 3].Columns[Copy of LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of LastName"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 3].Columns[Copy of DateOfBirth]"
+                      cachedDataType="date"
+                      cachedName="Copy of DateOfBirth"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DateOfBirth]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[DateOfBirth]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 3].Columns[Copy of Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Copy of Gender"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Gender]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Gender]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 3].Columns[Copy of Course]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of Course"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Course]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Course]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 3].Columns[Copy of RegistrationDate]"
+                      cachedDataType="date"
+                      cachedName="Copy of RegistrationDate"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RegistrationDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[RegistrationDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 3].Columns[Copy of Email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of Email"
+                      lineageId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Email]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Email]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[StudentID]"
+                      dataType="i4"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[StudentID]"
+                      name="StudentID" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[FirstName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[LastName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[DateOfBirth]"
+                      dataType="date"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[DateOfBirth]"
+                      name="DateOfBirth" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Course]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Course]"
+                      name="Course" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[RegistrationDate]"
+                      dataType="date"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[RegistrationDate]"
+                      name="RegistrationDate" />
+                    <outputColumn
+                      refId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1].Columns[Email]"
+                      name="Email" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF_LoadToStaging.Paths[Data Conversion Output]"
+              endId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 3]"
+              name="Data Conversion Output"
+              startId="Package\DF_LoadToStaging\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DF_LoadToStaging.Paths[Excel Source Output]"
+              endId="Package\DF_LoadToStaging\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\DF_LoadToStaging\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\DF_LoadToStaging.Paths[Flat File Source Output]"
+              endId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 1]"
+              name="Flat File Source Output"
+              startId="Package\DF_LoadToStaging\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DF_LoadToStaging.Paths[Flat File Source Output1]"
+              endId="Package\DF_LoadToStaging\Union All.Inputs[Union All Input 2]"
+              name="Flat File Source Output"
+              startId="Package\DF_LoadToStaging\Flat File Source 1.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DF_LoadToStaging.Paths[Union All Output 1]"
+              endId="Package\DF_LoadToStaging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\DF_LoadToStaging\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F25AABA8-E232-4C3F-BF34-1E79393F16C1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{43A0524E-100C-4ABB-B143-53254CC55892}"
+          SQLTask:SqlStatementSource="UPDATE t&#xA;SET t.IsActive = 0&#xA;FROM dbo.StudentsSCD t&#xA;JOIN dbo.StudentStaging s ON t.StudentID = s.StudentID&#xA;WHERE t.IsActive = 1&#xA;  AND (ISNULL(t.FirstName,'') &lt;&gt; ISNULL(s.FirstName,'')&#xA;       OR ISNULL(t.LastName,'') &lt;&gt; ISNULL(s.LastName,'')&#xA;       OR ISNULL(t.Course,'') &lt;&gt; ISNULL(s.Course,'')&#xA;       OR ISNULL(t.Email,'') &lt;&gt; ISNULL(s.Email));&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{72B5B877-6072-4642-8433-00A013AEB298}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{43A0524E-100C-4ABB-B143-53254CC55892}"
+          SQLTask:SqlStatementSource="INSERT INTO dbo.StudentsSCD (StudentID, FirstName, LastName, DateOfBirth, Gender, Course, RegistrationDate, Email, IsActive, LoadDate)&#xA;SELECT s.StudentID, s.FirstName, s.LastName, s.DateOfBirth, s.Gender, s.Course, s.RegistrationDate, s.Email, 1, SYSUTCDATETIME()&#xA;FROM dbo.StudentStaging s&#xA;LEFT JOIN dbo.StudentsSCD t ON s.StudentID = t.StudentID AND t.IsActive = 1&#xA;WHERE t.StudentID IS NULL&#xA;   OR (ISNULL(t.FirstName,'') &lt;&gt; ISNULL(s.FirstName,'')&#xA;       OR ISNULL(t.LastName,'') &lt;&gt; ISNULL(s.LastName,'')&#xA;       OR ISNULL(t.Course,'') &lt;&gt; ISNULL(s.Course,'')&#xA;       OR ISNULL(t.Email,'') &lt;&gt; ISNULL(s.Email));&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AA7F6DDD-9E4B-4C89-B123-0A74FEDEF847}"
+      DTS:From="Package\DF_LoadToStaging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Execute SQL Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{02849493-0616-44B0-884C-7DA4B229796E}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Execute SQL Task 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\DF_LoadToStaging"
+          TopLeft="122.499993306895,71.9333328331179" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="115.833327004479,162.066665539675" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Execute SQL Task 1"
+          TopLeft="114.166660428875,253.066664906873" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="206.899993306895,113.533332833118">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.66666630241573,48.5333327065574"
+              Start="0,0"
+              End="-8.66666630241573,41.0333327065574">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2666663532787" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2666663532787"
+                    Point2="0,24.2666663532787"
+                    Point3="-4,24.2666663532787" />
+                  <mssgle:LineSegment
+                    End="-4.66666630241573,24.2666663532787" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.66666630241573,24.2666663532787"
+                    Point2="-8.66666630241573,24.2666663532787"
+                    Point3="-8.66666630241573,28.2666663532787" />
+                  <mssgle:LineSegment
+                    End="-8.66666630241573,41.0333327065574" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="199.599993716677,203.666665539675">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.3999993671974"
+              Start="0,0"
+              End="0,41.8999993671974">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.8999993671974" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF_LoadToStaging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\DF_LoadToStaging\Excel Source"
+          TopLeft="89.999995082617,77.1333327969578" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DF_LoadToStaging\OLE DB Destination"
+          TopLeft="221.166661794815,342.62221983967" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\DF_LoadToStaging\Data Conversion"
+          TopLeft="80.833328916795,156.199998969436" />
+        <EdgeLayout
+          Id="Package\DF_LoadToStaging.Paths[Excel Source Output]"
+          TopLeft="159.416661999706,118.733332796958">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.4666661724779"
+              Start="0,0"
+              End="0,29.9666661724779">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.9666661724779" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\DF_LoadToStaging\Flat File Source"
+          TopLeft="261.11109684463,85.2592587034644" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\DF_LoadToStaging\Flat File Source 1"
+          TopLeft="460.03702909435,86.2222216597309" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\DF_LoadToStaging\Union All"
+          TopLeft="245.70369469862,244.14814648746" />
+        <EdgeLayout
+          Id="Package\DF_LoadToStaging.Paths[Flat File Source Output]"
+          TopLeft="336.71109684463,126.859258703464">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.00740214601,117.288887783995"
+              Start="0,0"
+              End="-31.00740214601,109.788887783995">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.6444438919977" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.6444438919977"
+                    Point2="0,58.6444438919977"
+                    Point3="-4,58.6444438919977" />
+                  <mssgle:LineSegment
+                    End="-27.00740214601,58.6444438919977" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.00740214601,58.6444438919977"
+                    Point2="-31.00740214601,58.6444438919977"
+                    Point3="-31.00740214601,62.6444438919977" />
+                  <mssgle:LineSegment
+                    End="-31.00740214601,109.788887783995" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_LoadToStaging.Paths[Flat File Source Output1]"
+          TopLeft="540.03702909435,127.822221659731">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-215.666667729064,116.325924827729"
+              Start="0,0"
+              End="-215.666667729064,108.825924827729">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.8771923322078" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,64.8771923322078"
+                    Point2="0,68.8771923322078"
+                    Point3="-4,68.8771923322078" />
+                  <mssgle:LineSegment
+                    End="-211.666667729064,68.8771923322078" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-211.666667729064,68.8771923322078"
+                    Point2="-215.666667729064,68.8771923322078"
+                    Point3="-215.666667729064,72.8771923322078" />
+                  <mssgle:LineSegment
+                    End="-215.666667729064,108.825924827729" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_LoadToStaging.Paths[Data Conversion Output]"
+          TopLeft="158.833328916795,197.799998969436">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118.870365781825,46.3481475180241"
+              Start="0,0"
+              End="118.870365781825,38.8481475180241">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2270527291461" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2270527291461"
+                    Point2="0,30.2270527291461"
+                    Point3="4,30.2270527291461" />
+                  <mssgle:LineSegment
+                    End="114.870365781825,30.2270527291461" />
+                  <mssgle:CubicBezierSegment
+                    Point1="114.870365781825,30.2270527291461"
+                    Point2="118.870365781825,30.2270527291461"
+                    Point3="118.870365781825,34.2270527291461" />
+                  <mssgle:LineSegment
+                    End="118.870365781825,38.8481475180241" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_LoadToStaging.Paths[Union All Output 1]"
+          TopLeft="306.235178246717,285.74814648746">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.8740733522101"
+              Start="0,0"
+              End="0,49.3740733522101">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.3740733522101" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_LoadToStaging\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_LoadToStaging\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
