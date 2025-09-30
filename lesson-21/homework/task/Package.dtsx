@@ -1,0 +1,3069 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/30/2025 8:24:18 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-AGJD8N8"
+  DTS:CreatorName="DESKTOP-AGJD8N8\Lenovo PC"
+  DTS:DTSID="{8E623C80-39D0-45E5-BF82-3737E3900A84}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{1E08EDC8-D147-4488-9EAB-BADE3AC8C56D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-AGJD8N8.ssis21]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F0A93B2B-A511-4E59-8301-AD029F42FE62}"
+      DTS:ObjectName="DESKTOP-AGJD8N8.ssis21">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-AGJD8N8;Initial Catalog=ssis21;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{F0A93B2B-A511-4E59-8301-AD029F42FE62}DESKTOP-AGJD8N8.ssis21;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{26E748C6-BABA-4D42-8264-D2783CEA0E4E}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Lenovo PC\Desktop\MAAB\SSIS\source\Students_Excel.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_CSV]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{30A04052-D72C-461F-B259-F74708053001}"
+      DTS:ObjectName="FF_CSV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Lenovo PC\Desktop\MAAB\SSIS\source\Students_Update.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentID"
+              DTS:DTSID="{D23028E8-4519-43C4-8FCE-064AD37449AA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{D52A71E3-E1DC-4FA0-9231-C8AEAF3CAE8D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{95A602D9-D570-4C17-AB7A-97FCDD729137}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DateOfBirth"
+              DTS:DTSID="{258E3F3A-2B2D-4758-A495-B28B40B8A4AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{B458EC47-2AB5-4272-8E7B-C0E41BD947DD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Course"
+              DTS:DTSID="{FA22BCF9-75A2-4585-ADE7-1CB96BD9FBB7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationDate"
+              DTS:DTSID="{47FF81B7-8F59-44BA-B860-101639074477}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{BCD253E9-4F28-42D5-BCE3-7313C1978DF9}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_TXT]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C4E6AEBB-6791-44EC-9942-7A70195A50F9}"
+      DTS:ObjectName="FF_TXT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Lenovo PC\Desktop\MAAB\SSIS\source\Students_New.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentID"
+              DTS:DTSID="{5574AD4D-FD49-4B14-BAE3-26AEBDC09079}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{CC765DE4-8175-48DF-A816-DD76573E12FA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{C5651E4D-E6FE-4514-A8F1-94AE2CAD6447}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DateOfBirth"
+              DTS:DTSID="{A897869A-3AB2-42C9-B5B6-7FCDC830A705}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{6AA3C55D-543B-471A-B477-66911DF6ECE6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Course"
+              DTS:DTSID="{E1D01D2B-0411-40D8-B3AC-3E0E14ECE260}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationDate"
+              DTS:DTSID="{34A10B80-1864-4370-8CFF-59628A865605}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{560A280D-6804-44A5-BB5E-A6127DCEF29C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF_Incremental_Type1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0C46B584-6F2D-4C52-B633-96D63FA81582}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF_Incremental_Type1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF_Incremental_Type1\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DF_Incremental_Type1\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Conditional Split.Inputs[Conditional Split Input].Columns[Course]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Course"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Course]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Conditional Split.Inputs[Conditional Split Input].Columns[TrimFirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TrimFirstName"
+                      lineageId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[TrimFirstName]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Conditional Split.Inputs[Conditional Split Input].Columns[TrimLastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TrimLastName"
+                      lineageId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[TrimLastName]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Conditional Split.Inputs[Conditional Split Input].Columns[TrimEmail]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TrimEmail"
+                      lineageId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[TrimEmail]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Conditional Split.Inputs[Conditional Split Input].Columns[DBCourse]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="DBCourse"
+                      lineageId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBCourse]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Conditional Split.Inputs[Conditional Split Input].Columns[DBFirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="DBFirstName"
+                      lineageId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBFirstName]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Conditional Split.Inputs[Conditional Split Input].Columns[DBLastName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="DBLastName"
+                      lineageId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBLastName]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Conditional Split.Inputs[Conditional Split Input].Columns[DBEmail]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="DBEmail"
+                      lineageId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBEmail]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Incremental_Type1\Conditional Split.Outputs[ChangedRows]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="ChangedRows"
+                  synchronousInputId="Package\DF_Incremental_Type1\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[TRIM](#{Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[TrimFirstName]}) != [TRIM](#{Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBFirstName]}) || [TRIM](#{Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[TrimLastName]}) != [TRIM](#{Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBLastName]}) || [TRIM](#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Course]}) != [TRIM](#{Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBCourse]}) || [TRIM](#{Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[TrimEmail]}) != [TRIM](#{Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBEmail]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">TRIM(TrimFirstName) != TRIM(DBFirstName) || TRIM(TrimLastName) != TRIM(DBLastName) || TRIM(Course) != TRIM(DBCourse) || TRIM(TrimEmail) != TRIM(DBEmail)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Incremental_Type1\Conditional Split.Outputs[UnChangedRows]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="UnChangedRows"
+                  synchronousInputId="Package\DF_Incremental_Type1\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Incremental_Type1\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DF_Incremental_Type1\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Incremental_Type1\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DF_Incremental_Type1\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Inputs[Data Conversion Input].Columns[StudentID]"
+                      cachedDataType="r8"
+                      cachedName="StudentID"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[StudentID]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Inputs[Data Conversion Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Inputs[Data Conversion Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Inputs[Data Conversion Input].Columns[DateOfBirth]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DateOfBirth"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Inputs[Data Conversion Input].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Gender"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Inputs[Data Conversion Input].Columns[Course]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Course"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[Course]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Inputs[Data Conversion Input].Columns[RegistrationDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RegistrationDate"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Inputs[Data Conversion Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Email"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[Email]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DF_Incremental_Type1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eStudentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eStudentID]"
+                      name="eStudentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[StudentID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eFirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eFirstName]"
+                      name="eFirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[FirstName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eLastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eLastName]"
+                      name="eLastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[LastName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eDateOfBirth]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eDateOfBirth]"
+                      name="eDateOfBirth"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eGender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eGender]"
+                      name="eGender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[Gender]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eCourse]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eCourse]"
+                      name="eCourse"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[Course]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eRegistrationDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eRegistrationDate]"
+                      name="eRegistrationDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eEmail]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eEmail]"
+                      name="eEmail"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[Email]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DF_Incremental_Type1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Incremental_Type1\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DF_Incremental_Type1\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Derived Column.Inputs[Derived Column Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Derived Column.Inputs[Derived Column Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Derived Column.Inputs[Derived Column Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Email"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Email]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DF_Incremental_Type1\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      name="LoadDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[TrimFirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[TrimFirstName]"
+                      name="TrimFirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[FirstName]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(FirstName)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[TrimLastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[TrimLastName]"
+                      name="TrimLastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[LastName]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(LastName)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[TrimEmail]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output].Columns[TrimEmail]"
+                      name="TrimEmail"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Email]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(Email)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DF_Incremental_Type1\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Incremental_Type1\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Incremental_Type1\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[StudentID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[StudentID]"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[StudentID]"
+                      name="StudentID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[FirstName]"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[LastName]"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[DateOfBirth]"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]"
+                      name="DateOfBirth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Gender]"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[Course]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Course]"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[Course]"
+                      name="Course"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[RegistrationDate]"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate]"
+                      name="RegistrationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Email]"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[StudentID]"
+                      dataType="r8"
+                      name="StudentID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="255"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="255"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[DateOfBirth]"
+                      dataType="wstr"
+                      length="255"
+                      name="DateOfBirth" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Course]"
+                      dataType="wstr"
+                      length="255"
+                      name="Course" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[RegistrationDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      name="Email" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[StudentID]"
+                      dataType="r8"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[StudentID]"
+                      name="StudentID" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[DateOfBirth]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[DateOfBirth]"
+                      name="DateOfBirth" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[Course]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[Course]"
+                      name="Course" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[RegistrationDate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[RegistrationDate]"
+                      name="RegistrationDate" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Incremental_Type1\Flat File CSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File CSV"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Incremental_Type1\Flat File CSV.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FF_CSV]"
+                  connectionManagerRefId="Package.ConnectionManagers[FF_CSV]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[StudentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[StudentID]"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[StudentID]"
+                      name="StudentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[DateOfBirth]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[DateOfBirth]"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[DateOfBirth]"
+                      name="DateOfBirth"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      length="1"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[Course]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[Course]"
+                      length="50"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[Course]"
+                      name="Course"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                      name="RegistrationDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      length="50"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[StudentID]"
+                      dataType="i4"
+                      name="StudentID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[DateOfBirth]"
+                      dataType="date"
+                      name="DateOfBirth" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[Course]"
+                      dataType="wstr"
+                      length="50"
+                      name="Course" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                      dataType="date"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="50"
+                      name="Email" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Incremental_Type1\Flat File TXT"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File TXT"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Incremental_Type1\Flat File TXT.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FF_TXT]"
+                  connectionManagerRefId="Package.ConnectionManagers[FF_TXT]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[StudentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[StudentID]"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[StudentID]"
+                      name="StudentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[DateOfBirth]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[DateOfBirth]"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[DateOfBirth]"
+                      name="DateOfBirth"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      length="1"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[Course]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[Course]"
+                      length="50"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[Course]"
+                      name="Course"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                      name="RegistrationDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      length="50"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[StudentID]"
+                      dataType="i4"
+                      name="StudentID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[DateOfBirth]"
+                      dataType="date"
+                      name="DateOfBirth" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[Course]"
+                      dataType="wstr"
+                      length="50"
+                      name="Course" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                      dataType="date"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="50"
+                      name="Email" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Incremental_Type1\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT StudentID, FirstName AS DBFirstName, LastName AS DBLastName, Course AS DBCourse, Email AS DBEmail
+FROM dbo.Students</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT StudentID, FirstName AS DBFirstName, LastName AS DBLastName, Course AS DBCourse, Email AS DBEmail
+FROM dbo.Students) [refTable]
+where [refTable].[StudentID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="StudentID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DBFirstName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DBLastName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DBCourse" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DBEmail" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[StudentID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Incremental_Type1\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-AGJD8N8.ssis21]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-AGJD8N8.ssis21]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_Incremental_Type1\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Lookup.Inputs[Lookup Input].Columns[StudentID]"
+                      cachedDataType="i4"
+                      cachedName="StudentID"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[StudentID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">StudentID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DF_Incremental_Type1\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[StudentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[StudentID]"
+                      name="StudentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">StudentID</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBFirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBFirstName]"
+                      name="DBFirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">DBFirstName</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBLastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBLastName]"
+                      name="DBLastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">DBLastName</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBCourse]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBCourse]"
+                      name="DBCourse"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">DBCourse</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBEmail]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="200"
+                      lineageId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output].Columns[DBEmail]"
+                      name="DBEmail"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">DBEmail</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DF_Incremental_Type1\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DF_Incremental_Type1\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Incremental_Type1\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.Students
+SET FirstName = ?, LastName = ?, DateOfBirth = ?, Gender = ?, Course = ?, RegistrationDate = ?, Email = ?
+WHERE StudentID = ?;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Incremental_Type1\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-AGJD8N8.ssis21]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-AGJD8N8.ssis21]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].Columns[DateOfBirth]"
+                      cachedDataType="date"
+                      cachedName="DateOfBirth"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[DateOfBirth]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].Columns[Course]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Course"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Course]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].Columns[RegistrationDate]"
+                      cachedDataType="date"
+                      cachedName="RegistrationDate"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].Columns[StudentID]"
+                      cachedDataType="i4"
+                      cachedName="StudentID"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[StudentID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="100"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="100"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="dbDate"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="1"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="wstr"
+                      length="100"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="dbDate"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="wstr"
+                      length="200"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="i4"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Incremental_Type1\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Incremental_Type1\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Incremental_Type1\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Students]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Incremental_Type1\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-AGJD8N8.ssis21]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-AGJD8N8.ssis21]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StudentID]"
+                      cachedDataType="i4"
+                      cachedName="StudentID"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StudentID]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[StudentID]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateOfBirth]"
+                      cachedDataType="date"
+                      cachedName="DateOfBirth"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[DateOfBirth]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Course]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Course"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Course]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RegistrationDate]"
+                      cachedDataType="date"
+                      cachedName="RegistrationDate"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Email]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StudentID]"
+                      dataType="i4"
+                      name="StudentID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="100"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="100"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                      dataType="dbDate"
+                      name="DateOfBirth" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                      dataType="wstr"
+                      length="100"
+                      name="Course" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                      dataType="dbDate"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="200"
+                      name="Email" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Incremental_Type1\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Incremental_Type1\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 1].Columns[StudentID]"
+                      cachedDataType="i4"
+                      cachedName="StudentID"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[StudentID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[StudentID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 1].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 1].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 1].Columns[DateOfBirth]"
+                      cachedDataType="date"
+                      cachedName="DateOfBirth"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[DateOfBirth]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[DateOfBirth]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 1].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[Gender]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Gender]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 1].Columns[Course]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Course"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[Course]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Course]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 1].Columns[RegistrationDate]"
+                      cachedDataType="date"
+                      cachedName="RegistrationDate"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[RegistrationDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[RegistrationDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 1].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Email"
+                      lineageId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output].Columns[Email]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Email]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 2].Columns[StudentID]"
+                      cachedDataType="i4"
+                      cachedName="StudentID"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[StudentID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[StudentID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 2].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 2].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 2].Columns[DateOfBirth]"
+                      cachedDataType="date"
+                      cachedName="DateOfBirth"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[DateOfBirth]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[DateOfBirth]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 2].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[Gender]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Gender]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 2].Columns[Course]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Course"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[Course]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Course]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 2].Columns[RegistrationDate]"
+                      cachedDataType="date"
+                      cachedName="RegistrationDate"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[RegistrationDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[RegistrationDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 2].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Email"
+                      lineageId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output].Columns[Email]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Email]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 3].Columns[eStudentID]"
+                      cachedDataType="i4"
+                      cachedName="eStudentID"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eStudentID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[StudentID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 3].Columns[eFirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="eFirstName"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eFirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 3].Columns[eLastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="eLastName"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eLastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 3].Columns[eDateOfBirth]"
+                      cachedDataType="date"
+                      cachedName="eDateOfBirth"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eDateOfBirth]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[DateOfBirth]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 3].Columns[eGender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="eGender"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eGender]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Gender]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 3].Columns[eCourse]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="eCourse"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eCourse]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Course]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 3].Columns[eRegistrationDate]"
+                      cachedDataType="date"
+                      cachedName="eRegistrationDate"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eRegistrationDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[RegistrationDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 3].Columns[eEmail]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="eEmail"
+                      lineageId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output].Columns[eEmail]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Email]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[StudentID]"
+                      dataType="i4"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[StudentID]"
+                      name="StudentID" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[FirstName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[LastName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[DateOfBirth]"
+                      dataType="date"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[DateOfBirth]"
+                      name="DateOfBirth" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Course]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Course]"
+                      name="Course" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[RegistrationDate]"
+                      dataType="date"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[RegistrationDate]"
+                      name="RegistrationDate" />
+                    <outputColumn
+                      refId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1].Columns[Email]"
+                      name="Email" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF_Incremental_Type1.Paths[ChangedRows]"
+              endId="Package\DF_Incremental_Type1\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="ChangedRows"
+              startId="Package\DF_Incremental_Type1\Conditional Split.Outputs[ChangedRows]" />
+            <path
+              refId="Package\DF_Incremental_Type1.Paths[Data Conversion Output]"
+              endId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 3]"
+              name="Data Conversion Output"
+              startId="Package\DF_Incremental_Type1\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DF_Incremental_Type1.Paths[Derived Column Output]"
+              endId="Package\DF_Incremental_Type1\Lookup.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\DF_Incremental_Type1\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DF_Incremental_Type1.Paths[Excel Source Output]"
+              endId="Package\DF_Incremental_Type1\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\DF_Incremental_Type1\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\DF_Incremental_Type1.Paths[Flat File Source Output]"
+              endId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 1]"
+              name="Flat File Source Output"
+              startId="Package\DF_Incremental_Type1\Flat File TXT.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DF_Incremental_Type1.Paths[Flat File Source Output1]"
+              endId="Package\DF_Incremental_Type1\Union All.Inputs[Union All Input 2]"
+              name="Flat File Source Output"
+              startId="Package\DF_Incremental_Type1\Flat File CSV.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DF_Incremental_Type1.Paths[Lookup Match Output]"
+              endId="Package\DF_Incremental_Type1\Conditional Split.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DF_Incremental_Type1.Paths[Lookup No Match Output]"
+              endId="Package\DF_Incremental_Type1\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\DF_Incremental_Type1\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DF_Incremental_Type1.Paths[Union All Output 1]"
+              endId="Package\DF_Incremental_Type1\Derived Column.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\DF_Incremental_Type1\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\DF_Incremental_Type1"
+          TopLeft="91.666661658221,78.8666661182377" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF_Incremental_Type1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\DF_Incremental_Type1\Excel Source"
+          TopLeft="44.9999975413085,52.8666662990385" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\DF_Incremental_Type1\Flat File TXT"
+          TopLeft="219.99998797973,56.3333329415984" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\DF_Incremental_Type1\Flat File CSV"
+          TopLeft="373.699980193874,60.6666662447982" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\DF_Incremental_Type1\Data Conversion"
+          TopLeft="49.500004507601,136.933332381116" />
+        <EdgeLayout
+          Id="Package\DF_Incremental_Type1.Paths[Excel Source Output]"
+          TopLeft="114.999997541309,94.4666662990385">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.5000069662925,42.4666660820776"
+              Start="0,0"
+              End="12.5000069662925,34.9666660820776">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2333330410388" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2333330410388"
+                    Point2="0,21.2333330410388"
+                    Point3="4,21.2333330410388" />
+                  <mssgle:LineSegment
+                    End="8.50000696629253,21.2333330410388" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.50000696629253,21.2333330410388"
+                    Point2="12.5000069662925,21.2333330410388"
+                    Point3="12.5000069662925,25.2333330410388" />
+                  <mssgle:LineSegment
+                    End="12.5000069662925,34.9666660820776" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\DF_Incremental_Type1\Union All"
+          TopLeft="204.814807023899,233.037035416527" />
+        <EdgeLayout
+          Id="Package\DF_Incremental_Type1.Paths[Flat File Source Output]"
+          TopLeft="288.79998797973,97.9333329415984">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.985180955831,135.103702474928"
+              Start="0,0"
+              End="-23.985180955831,127.603702474928">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5518512374641" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,63.5518512374641"
+                    Point2="0,67.5518512374641"
+                    Point3="-4,67.5518512374641" />
+                  <mssgle:LineSegment
+                    End="-19.985180955831,67.5518512374641" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.985180955831,67.5518512374641"
+                    Point2="-23.985180955831,67.5518512374641"
+                    Point3="-23.985180955831,71.5518512374641" />
+                  <mssgle:LineSegment
+                    End="-23.985180955831,127.603702474928" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Incremental_Type1.Paths[Flat File Source Output1]"
+          TopLeft="443.299980193874,102.266666244798">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-159.818506503308,130.770369171728"
+              Start="0,0"
+              End="-159.818506503308,123.270369171728">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.4298238516812" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,73.4298238516812"
+                    Point2="0,77.4298238516812"
+                    Point3="-4,77.4298238516812" />
+                  <mssgle:LineSegment
+                    End="-155.818506503308,77.4298238516812" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-155.818506503308,77.4298238516812"
+                    Point2="-159.818506503308,77.4298238516812"
+                    Point3="-159.818506503308,81.4298238516812" />
+                  <mssgle:LineSegment
+                    End="-159.818506503308,123.270369171728" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Incremental_Type1.Paths[Data Conversion Output]"
+          TopLeft="127.500004507601,178.533332381116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="109.314802516298,54.5037030354105"
+              Start="0,0"
+              End="109.314802516298,47.0037030354105">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5458932839634" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5458932839634"
+                    Point2="0,35.5458932839634"
+                    Point3="4,35.5458932839634" />
+                  <mssgle:LineSegment
+                    End="105.314802516298,35.5458932839634" />
+                  <mssgle:CubicBezierSegment
+                    Point1="105.314802516298,35.5458932839634"
+                    Point2="109.314802516298,35.5458932839634"
+                    Point3="109.314802516298,39.5458932839634" />
+                  <mssgle:LineSegment
+                    End="109.314802516298,47.0037030354105" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\DF_Incremental_Type1\Derived Column"
+          TopLeft="185.925918438553,304.296294180258" />
+        <EdgeLayout
+          Id="Package\DF_Incremental_Type1.Paths[Union All Output 1]"
+          TopLeft="263.570362731226,274.637035416527">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.6592587637313"
+              Start="0,0"
+              End="0,22.1592587637313">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.1592587637313" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\DF_Incremental_Type1\Conditional Split"
+          TopLeft="184.074066687881,453.629626710032" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DF_Incremental_Type1\OLE DB Destination"
+          TopLeft="415.629613137172,365.259257658838" />
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\DF_Incremental_Type1\OLE DB Command"
+          TopLeft="282.222214330126,537.629626830566" />
+        <EdgeLayout
+          Id="Package\DF_Incremental_Type1.Paths[ChangedRows]"
+          TopLeft="260.874066687882,495.229626710032">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="104.948147642245,42.4000001205341"
+              Start="0,0"
+              End="104.948147642245,34.9000001205341">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.200000060267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.200000060267"
+                    Point2="0,21.200000060267"
+                    Point3="4,21.200000060267" />
+                  <mssgle:LineSegment
+                    End="100.948147642245,21.200000060267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="100.948147642245,21.200000060267"
+                    Point2="104.948147642245,21.200000060267"
+                    Point3="104.948147642245,25.200000060267" />
+                  <mssgle:LineSegment
+                    End="104.948147642245,34.9000001205341" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="20.5989761648723,26.200000060267,63.7501953125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\DF_Incremental_Type1\Lookup"
+          TopLeft="205.555544324496,369.555554370306" />
+        <EdgeLayout
+          Id="Package\DF_Incremental_Type1.Paths[Derived Column Output]"
+          TopLeft="262.140731381524,345.896294180258">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.6592601900483"
+              Start="0,0"
+              End="0,16.1592601900483">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.1592601900483" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Incremental_Type1.Paths[Lookup No Match Output]"
+          TopLeft="318.355544324496,388.207406014572">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97.2740688126768,0"
+              Start="0,0"
+              End="89.7740688126768,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="89.7740688126768,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.9193523124116,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Incremental_Type1.Paths[Lookup Match Output]"
+          TopLeft="261.414805506189,411.155554370306">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.474072339726"
+              Start="0,0"
+              End="0,34.974072339726">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.974072339726" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.682348669863,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Incremental_Type1\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Incremental_Type1\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Incremental_Type1\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
